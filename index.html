@@ -6,30 +6,59 @@
     <title>Launch Face Comparison</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
-            background-color: #f0f0f0;
+            background-color: #f0f4f8;
         }
         .container {
             background-color: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .comparison-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .comparison-link {
+            background-color: #e9ecef;
+            color: #495057;
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .comparison-link:hover {
+            background-color: #ced4da;
         }
         .input-container {
             display: flex;
-            justify-content: center;
-            margin-bottom: 10px;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        .input-container label {
+            margin-bottom: 5px;
+            color: #495057;
         }
         .input-container input {
-            margin: 0 5px;
-            padding: 5px;
-            width: 150px;
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
         }
         .button {
             background-color: #007bff;
@@ -40,9 +69,37 @@
             text-decoration: none;
             display: inline-block;
             font-size: 16px;
-            margin: 10px 2px;
+            margin-top: 10px;
             cursor: pointer;
             border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #e9ecef;
+            margin: 20px 0;
+        }
+        .login-note {
+            margin-top: 20px;
+            padding: 15px;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            background-color: #e7f1ff;
+        }
+        .login-note h3 {
+            color: #007bff;
+            margin-top: 0;
+        }
+        .login-note a {
+            color: #0056b3;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .login-note a:hover {
+            text-decoration: underline;
         }
     </style>
     <script>
@@ -60,20 +117,28 @@
 </head>
 <body>
     <div class="container">
-        <h2>Select Face Comparison:</h2>
-        <a href="javascript:popup('240567', '229788')">Colin and Jamilla</a><br>
-        <a href="javascript:popup('242934', '237747')">Koby and Jessica</a><br>
-        <a href="javascript:popup('229609', '227249')">Curtis and Dana</a><br>
+        <h2>Face Comparison Tool</h2>
+        <div class="comparison-links">
+            <a href="javascript:popup('240567', '229788')" class="comparison-link">Colin and Jamilla</a>
+            <a href="javascript:popup('242934', '237747')" class="comparison-link">Koby and Jessica</a>
+            <a href="javascript:popup('229609', '227249')" class="comparison-link">Curtis and Dana</a>
+        </div>
         <hr>
         <div class="input-container">
             <label for="profile_id_1">Man Profile ID:</label>
-            <input type="text" id="profile_id_1" name="profile_id_1">
+            <input type="text" id="profile_id_1" name="profile_id_1" placeholder="Enter ID">
         </div>
         <div class="input-container">
             <label for="profile_id_2">Woman Profile ID:</label>
-            <input type="text" id="profile_id_2" name="profile_id_2">
+            <input type="text" id="profile_id_2" name="profile_id_2" placeholder="Enter ID">
         </div>
         <button class="button" onclick="compareProfiles()">Compare Faces</button>
+        
+        <div class="login-note">
+            <h3>NOTE: First log into QA Test Server</h3>
+            <p>Click below to log in using your Google credentials</p>
+            <a href="https://kiss-qa.kelleher-international.com">kiss-qa.kelleher-international.com</a>
+        </div>
     </div>
 </body>
 </html>
