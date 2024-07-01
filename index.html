@@ -1,7 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Launch Face Comparison</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .input-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        .input-container input {
+            margin: 0 5px;
+            padding: 5px;
+            width: 150px;
+        }
+        .button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        function popup(profile_id_1, profile_id_2) {
+            const url = `https://kiss-qa.kelleher-international.com/compare_faces.php?profile_id_1=${profile_id_1}&profile_id_2=${profile_id_2}`;
+            const popupWindow = window.open(url, 'Face Comparison', 'width=800,height=600');
+        }
+
+        function compareProfiles() {
+            const profile_id_1 = document.getElementById('profile_id_1').value;
+            const profile_id_2 = document.getElementById('profile_id_2').value;
+            popup(profile_id_1, profile_id_2);
+        }
+    </script>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+    <div class="container">
+        <h2>Select Face Comparison:</h2>
+        <a href="javascript:popup('240567', '229788')">Colin and Jamilla</a><br>
+        <a href="javascript:popup('242934', '237747')">Koby and Jessica</a><br>
+        <a href="javascript:popup('229609', '227249')">Curtis and Dana</a><br>
+        <hr>
+        <div class="input-container">
+            <label for="profile_id_1">Man Profile ID:</label>
+            <input type="text" id="profile_id_1" name="profile_id_1">
+        </div>
+        <div class="input-container">
+            <label for="profile_id_2">Woman Profile ID:</label>
+            <input type="text" id="profile_id_2" name="profile_id_2">
+        </div>
+        <button class="button" onclick="compareProfiles()">Compare Faces</button>
+    </div>
 </body>
 </html>
